@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to MY NEW app TELEMED"/>
+  <div>
+  <div>Количество лайков<strong>{{like}}</strong></div>
+      <div>Количество дизлайков<strong>{{dislike}}</strong></div>
+  </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+
   components: {
-    HelloWorld
+      data(){
+          return{likes:0,
+          dislikes:5}
+      }
+
   }
 }
 </script>

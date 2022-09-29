@@ -29,7 +29,7 @@ public class Doctor {
     private String mobNumber;
     private String age;
     private int priceOfConsultation;
-    private String appointmentTime;
+    private String appointmentTimeDoc;
     private String typeOfAppointment;
 
 

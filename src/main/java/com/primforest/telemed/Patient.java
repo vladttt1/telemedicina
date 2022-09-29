@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("patient")
+@Document(collection="patient")
 public class Patient {
     @Id
     private int id;
@@ -26,11 +26,15 @@ public class Patient {
     private String diagnosis;
     private String prescriptions;
     private String language;
+    private double balance;
 
     private String appointmentTime;
     private String typeOfAppointment;
-    private  int balance;
+
     private int appointmentId;
+    @Override
+    public  String toString(){return "New appoitment for" + patientName +
+    "with" + id + "at " + appointmentTime;}
 
 
 

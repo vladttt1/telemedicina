@@ -8,8 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ClinicRepositoryTest {
     @Autowired
     ClinicRepository clinicRepository;
-    @Autowired
-    PatientRepository patientRepository;
+
     @Autowired
     ClinicService clinicService;
     @Test
@@ -20,6 +19,7 @@ class ClinicRepositoryTest {
         clinicRepository.save(new Doctor(9,"Stefan","Oftalmologist","sef doctor","Chisinau Med Univer","1984","15","1 hospital","www.oftalm.com,","www.urol.com","St cel Mare str 5 ","stefan@gmail.com","+3736000054","50",300,"10", "chat "));
     clinicRepository.findAll().forEach(System.out::println);
     System.out.println("THERE ARE OUR DOCTORS");
+
 
 
 
