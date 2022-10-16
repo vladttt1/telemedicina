@@ -1,13 +1,10 @@
 package com.primforest.telemed;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import lombok.Data;
-
-import java.util.Date;
-import java.util.List;
 @Data
 @Document(collection = "doctor_DB")
 @NoArgsConstructor
@@ -15,7 +12,8 @@ import java.util.List;
 public class Doctor {
     @Id
     private int id;
-    private  String name;
+    @lombok.Getter
+    private  String doctorName;
     private String speciality;
     private String position;
     private String university;

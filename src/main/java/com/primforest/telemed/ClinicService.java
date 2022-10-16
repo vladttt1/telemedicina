@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
-import  org.springframework.data.mongodb.core.query.Criteria;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +19,7 @@ public class  ClinicService {
     PatientRepository patientRepository;
     @Autowired
     ClinicRepository clinicRepository;
+
     public MongoTemplate mongoTemplate;
 
 
@@ -31,13 +32,13 @@ public class  ClinicService {
                 .addCriteria(Criteria.where("speciality").is(speciality))
                     .with(Sort.by(Sort.Order.desc("speciality")))
                     .limit(10);
-                return (List<Doctor>) mongoTemplate.find(query, Doctor.class);
+                return mongoTemplate.find(query, Doctor.class);
             }
 
     public List<Patient>allPatientsByDoctor(String patientName){
         Query query3 = new Query();
         query3.addCriteria(Criteria.where("name").is(patientName));
-        return (List<Patient>)mongoTemplate.find(query3,Patient.class);
+        return mongoTemplate.find(query3,Patient.class);
 }
 
 
@@ -46,20 +47,20 @@ public class  ClinicService {
         query4.addCriteria(Criteria.where("patientName").is(patientName))
 
         .with(Sort.by(Sort.Order.desc("patientName")))
-            .limit(10);
-        return (List<Patient>)mongoTemplate.find(query4,Patient.class);
+            ;
+        return mongoTemplate.find(query4,Patient.class);
     }
+    /*Query =new Query();
+        query.addCriteria(Criteria.where(patientName).is(patientName));
+        return mongoTemplate.find(query,Patient.class);
+*/
      public List<Patient>allPatientsByDiagnosis(String diagnosis){
         Query query5= new Query();
         query5.addCriteria(Criteria.where("diagnosis").is(diagnosis));
-     return  (List<Patient>)mongoTemplate.find(query5,Patient.class);
-
-}}
-
-
-
-    //public void createNewAppointment(RestRequestNewAppointment restRequestNewAppointment) {
-      //  clinicRepository.createNewAppointment(restRequestNewAppointment);
-    //}
-
+     return mongoTemplate.find(query5,Patient.class);
+}
+    public void createNewAppointment(RestRequestNewAppointment restRequestNewAppointment) {
+       clinicRepository.createNewAppointment(restRequestNewAppointment);
+    }
+}
 

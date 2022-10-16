@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 public class RestRequestNewAppointment {
     private String appointmentTime;
     private String typeOfAppointment;
-    private int id;
+    private long appointmentId;
     private String patientName;
+    private  String doctorName;
+    private String speciality;
 
 }
