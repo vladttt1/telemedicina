@@ -59,8 +59,8 @@ public class  ClinicService {
         query5.addCriteria(Criteria.where("diagnosis").is(diagnosis));
      return mongoTemplate.find(query5,Patient.class);
 }
-    public void createNewAppointment(RestRequestNewAppointment restRequestNewAppointment) {
-       clinicRepository.createNewAppointment(restRequestNewAppointment);
+    //public void createNewAppointment(RestRequestNewAppointment restRequestNewAppointment) {
+       //clinicRepository.createNewAppointment(restRequestNewAppointment);
     }
-}
+
 

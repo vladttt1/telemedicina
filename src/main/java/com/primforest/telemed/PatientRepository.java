@@ -12,5 +12,5 @@ public interface PatientRepository extends MongoRepository<Patient,Integer> {
     void deleteDoctorById();
 
 
-    void balanceByName(String patientName);
+
 }

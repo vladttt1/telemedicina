@@ -1,5 +1,6 @@
 package com.primforest.telemed;
 
+import PatientAccount.BankProgram;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -21,12 +22,14 @@ PatientRepository patientRepository;
     private DoctorService doctorService;
 @Autowired
   private ClinicService clinicService;
+@Autowired
+PatientService patientService;
     @GetMapping("/allDoctors")
     public List<Doctor>getAllDoctors(){
         return clinicRepository.findAll(); }
-    @PostMapping(value = "/newAppointment")
- public  void  newAppointment(@RequestBody RestRequestNewAppointment restRequestNewAppointment  ){
-        clinicService.createNewAppointment(restRequestNewAppointment);}
+  //  @PostMapping(value = "/newAppointment")
+ //public  void  newAppointment(@RequestBody RestRequestNewAppointment restRequestNewAppointment  ){
+      //  clinicService.createNewAppointment(restRequestNewAppointment);}
     //@PostMapping(value = "/save")
     //public ResponseEntity<?> saveOrUpdateAppointment(@RequestBody Patient patient) {
         //clinicService.saveOrUpdateAppointment(ObjectMapperUtils.map(patient, Patient.class));
@@ -53,12 +56,24 @@ PatientRepository patientRepository;
         public List<Patient> findAllPatientsByPatientName (@PathVariable String patientName){
             return clinicService.getPatientByName(patientName);
         }
+@GetMapping
+    (value = "/findDoctors/{doctorName}")
+public  List<String>getDoctorByName(@PathVariable String doctorName){
+        return clinicRepository.findAllBydoctorName();
 
+}
         @GetMapping("/allPatients")
         public List<Patient> getAllPatients () {
             return patientRepository.findAll();
-        }}
+        }
+         @GetMapping("/addAmount/{amount}")
+public  void addAmount(@PathVariable int amount){
+            // patientService.addAmount();
+             BankProgram program= new BankProgram();
 
+             program.run();
+             return;
+         }}
 
 
 
