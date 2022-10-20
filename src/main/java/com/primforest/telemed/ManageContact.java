@@ -79,8 +79,6 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
                 position.setValue(x.getPosition());
                 mobNumber.setValue(x.getMobNumber());
                 email.setValue(x.getEmail());
-
-
                 university.setValue(x.getUniversity());
                 experienceYear.setValue(x.getExperienceYear());
                 hospitalName.setValue(x.getHopspitalName());
@@ -108,7 +106,6 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
              doctor.setAppointmentTimeDoc(appointmentTimeDoc.getValue());
              doctor.setTypeOfAppointment(typeOfAppointment.getValue());
              doctor.setWebsite(website.getValue());
-
             clinicRepository.save(doctor);
 
             Notification notification = new Notification(id.equals(0)? "Контакт успешно создан":"Контакт был изменен",1000);
