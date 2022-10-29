@@ -19,8 +19,6 @@ import java.util.List;
 @Route("contacts")
 public class ContactList extends AppLayout {
 
-
-
     VerticalLayout layout;
     Grid<Doctor> grid;
     RouterLink linkCreate;
@@ -32,7 +30,7 @@ public class ContactList extends AppLayout {
         layout = new VerticalLayout();
         grid = new Grid<>();
         grid = new Grid<>(Doctor.class);
-        linkCreate = new RouterLink("Создать контакт",ManageContact.class,0);
+        linkCreate = new RouterLink("Создать контакт",ManageContact.class,(int)(Math.random()*100+158));
         layout.add(linkCreate);
         layout.add(grid);
         addToNavbar(new H3("Список контактов"));

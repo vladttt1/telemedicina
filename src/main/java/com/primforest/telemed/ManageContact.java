@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
+
 @Route("manageContact")
 public class ManageContact extends AppLayout implements HasUrlParameter<Integer> {
 
@@ -60,12 +61,14 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
 
     @Override
     public void setParameter(BeforeEvent beforeEvent, Integer contactId) {
-        id = contactId;
-        if (!id.equals(0)){
-            addToNavbar(new H3("Редактирование контакта"));
+
+        id =contactId;
+        if (!id.equals(0)){addToNavbar(new H3("Редактирование контакта"));
         }
         else {
-            addToNavbar(new H3("Создание контакта"));
+
+                addToNavbar(new H3(" Создание контакта"));
+
         }
         fillForm();
     }
@@ -86,14 +89,15 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
                 appointmentTimeDoc.setValue(x.getAppointmentTimeDoc());
                 typeOfAppointment.setValue(x.getTypeOfAppointment());
                 website.setValue(x.getWebsite());
-            });
+            } );
         }
         saveContact.addClickListener(clickEvent->{
             //Создадим объект контакта получив значения с формы
+
             Doctor doctor = new Doctor();
-            if (!id.equals(0)){
-                doctor.setId(id);
-            }
+          if (!id.equals(0)) {
+              doctor.setId(id);
+          }
             doctor.setDoctorName(doctorName.getValue());
             doctor.setSpeciality(speciality.getValue());
             doctor.setPosition(position.getValue());
@@ -107,6 +111,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
              doctor.setTypeOfAppointment(typeOfAppointment.getValue());
              doctor.setWebsite(website.getValue());
             clinicRepository.save(doctor);
+
 
             Notification notification = new Notification(id.equals(0)? "Контакт успешно создан":"Контакт был изменен",1000);
             notification.setPosition(Notification.Position.MIDDLE);

@@ -38,7 +38,6 @@ PatientService patientService;
         public Doctor addNewDoctor (@RequestBody Doctor doctor){
             return clinicRepository.save(doctor);
         }
-
         @PostMapping("/newPatient")
         public Patient addNewPatient (@RequestBody Patient patient)
         {
@@ -60,7 +59,6 @@ PatientService patientService;
     (value = "/findDoctors/{doctorName}")
 public  List<String>getDoctorByName(@PathVariable String doctorName){
         return clinicRepository.findAllBydoctorName();
-
 }
         @GetMapping("/allPatients")
         public List<Patient> getAllPatients () {
@@ -70,7 +68,6 @@ public  List<String>getDoctorByName(@PathVariable String doctorName){
 public  void addAmount(@PathVariable int amount){
             // patientService.addAmount();
              BankProgram program= new BankProgram();
-
              program.run();
              return;
          }}

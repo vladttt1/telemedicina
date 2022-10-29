@@ -83,7 +83,12 @@
             </artifactId>
             <version>23.2.4</version>
         </dependency>
-    </dependencies>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>collaboration-engine</artifactId>
+        <version>5.2.0</version>
+    </dependency>
+</dependencies>
 
     <build>
         <plugins>

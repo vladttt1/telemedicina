@@ -2,17 +2,20 @@ package com.primforest.telemed;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "doctor_DB")
-@NoArgsConstructor
 @AllArgsConstructor
-
+@EqualsAndHashCode
+@NoArgsConstructor
 
 public class Doctor {
     @Id
+
+
     private int id;
     private  String doctorName;
     private String speciality;
