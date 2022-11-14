@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-@Route("contacts")
+@Route("doctors")
 public class ContactList extends AppLayout {
 
     VerticalLayout layout;
@@ -30,10 +30,10 @@ public class ContactList extends AppLayout {
         layout = new VerticalLayout();
         grid = new Grid<>();
         grid = new Grid<>(Doctor.class);
-        linkCreate = new RouterLink("Создать контакт",ManageContact.class,(int)(Math.random()*100+158));
+        linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,(int)(Math.random()*100+158));
         layout.add(linkCreate);
         layout.add(grid);
-        addToNavbar(new H3("Список контактов"));
+        addToNavbar(new H3("LIST OF DOCTORS"));
         setContent(layout);
     }
     @PostConstruct

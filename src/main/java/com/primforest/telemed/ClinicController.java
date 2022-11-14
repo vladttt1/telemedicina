@@ -69,8 +69,17 @@ public  void addAmount(@PathVariable int amount){
             // patientService.addAmount();
              BankProgram program= new BankProgram();
              program.run();
-             return;
-         }}
+
+         }
+
+    public DoctorService getDoctorService() {
+        return doctorService;
+    }
+
+    public void setDoctorService(DoctorService doctorService) {
+        this.doctorService = doctorService;
+    }
+}
 
 
 

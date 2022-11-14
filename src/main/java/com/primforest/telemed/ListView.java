@@ -13,7 +13,7 @@ import com.vaadin.flow.router.Route;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-@Route("doctors")
+@Route("contacts")
 
 
         @PageTitle("Doctors | Vaadin CRM")

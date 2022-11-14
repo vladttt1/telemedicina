@@ -14,8 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Doctor {
     @Id
-
-
     private int id;
     private  String doctorName;
     private String speciality;
@@ -32,5 +30,5 @@ public class Doctor {
 
 
 
-    }
+}
 
