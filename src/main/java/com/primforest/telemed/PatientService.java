@@ -1,36 +1,52 @@
 package com.primforest.telemed;
-
-import Appointment.AppointmentEntity;
-import Appointment.RestRequestNewAppointment;
-import Appointment.RestResponseNewAppointment;
-import lombok.experimental.Accessors;
-import org.springframework.beans.factory.annotation.Autowired;
+/*
+import com.example.application.data.entity.Company;
+import com.example.application.data.entity.Contact;
+import com.example.application.data.entity.Status;
+import com.example.application.data.repository.CompanyRepository;
+import com.example.application.data.repository.ContactRepository;
+import com.example.application.data.repository.StatusRepository;
 import org.springframework.stereotype.Service;
-@Service
-@Accessors(fluent=true,chain=true)
-public class PatientService {
-    @Autowired
-    PatientRepository patientRepository;
-
-    RestResponseNewAppointment createNewAppointment(RestRequestNewAppointment restRequestNewAppointment) {
-        AppointmentEntity newAppointmentEntity = AppointmentEntity.builder()
-            .appointmentId(restRequestNewAppointment.getAppointmentId())
-            .build();
-        return null;
-        //незакончен метод
-    }
-}
-    /*public void addAmount() {
-        BankProgram program= new BankProgram();
-
-        program.run();
-    }
-}
-
-        //AppointmentEntity
-       // save1 = patientRepository.save(newAppointmentEntity);
-       // return  RestResponseNewAppointment.fromPatient(save1);
-    //}
-
-//}
 */
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class PatientService {
+
+    private final PatientRepository patientRepository;
+
+
+    public PatientService(PatientRepository patientRepository
+                      ) {
+        this.patientRepository=patientRepository;
+    }
+
+    public List<Patient> findAllPatients(String stringFilter) {
+        if (stringFilter == null || stringFilter.isEmpty()) {
+            return patientRepository.findAll();
+        } else {
+            return patientRepository.findAllPatientsByPatientName(stringFilter);
+        }
+    }
+
+    public long countPatients() {
+        return patientRepository.count();
+    }
+
+    public void deletePatient(Patient patient) {
+        patientRepository.delete(patient);
+    }
+
+    public void savePatient(Patient patient) {
+        if (patient == null) {
+            System.err.println("Contact is null. Are you sure you have connected your form to the application?");
+            return;
+        }
+        patientRepository.save(patient);
+    }
+
+
+}
