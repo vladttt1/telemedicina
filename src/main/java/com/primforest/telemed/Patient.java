@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="patient")
 public class Patient {
     @Id
+
     private int id;
     private String patientName;
 

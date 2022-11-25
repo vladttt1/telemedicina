@@ -33,6 +33,7 @@ public class ContactForm extends FormLayout {
     TextField doctorNameForPatient=new TextField("doctorNameForPatient)");
     public void setContact(Patient patient) {
         this.patient = patient;
+
         binder.readBean(patient);
     }
     Button save = new Button("Save");

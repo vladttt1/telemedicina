@@ -4,8 +4,6 @@ package com.primforest.telemed;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -15,9 +13,11 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.PermitAll;
 
-@Route(value = "patients")
+@Route(value="", layout = MainLayout.class)
+
 @PermitAll
-    @PageTitle("Patients | Vaadin CRM")
+    @PageTitle("Patients | Telemedicine")
+
     public class ListViewPatient extends VerticalLayout {
         Grid<Patient> grid = new Grid<>(Patient.class);
         TextField filterText = new TextField();
@@ -30,12 +30,13 @@ import javax.annotation.security.PermitAll;
             setSizeFull();
             configureGrid();
             configureForm();
-            Image img=new Image("/src/main/resources/static/doctor1.png","Patients");
-            img.setWidth("800px");
-            add(img);
-            Icon icon = new Icon("vaadin", "doctor");
-            add(icon);
+            //Image img=new Image("/src/main/resources/static/doctor1.png","Patients");
+            //img.setWidth("800px");
+            //add(img);
+            //Icon icon = new Icon("vaadin", "doctor");
+            //add(icon);
             add(getToolbar(), getContent());updateList();
+            closeEditor();
         }
 private Component getContent(){
     HorizontalLayout content = new HorizontalLayout(grid,contactForm);
@@ -45,10 +46,25 @@ private Component getContent(){
     content.setSizeFull();
     return content;
         }
-        private void configureForm() {
+         void configureForm() {
             contactForm= new ContactForm();
             contactForm.setWidth("25em");
+            contactForm.addListener(ContactForm.SaveEvent.class, this::savePatient);
+            contactForm.addListener(ContactForm.DeleteEvent.class, this::deletePatient);
+            contactForm.addListener(ContactForm.CloseEvent.class, e -> closeEditor());
         }
+     void savePatient(ContactForm.SaveEvent event) {
+        patientService.savePatient(event.getContact());
+        updateList();
+        closeEditor();
+    }
+
+     void deletePatient(ContactForm.DeleteEvent event) {
+        patientService.deletePatient(event.getContact());
+        updateList();
+        closeEditor();
+    }
+
 //здесь нужно добавить 2 List для combobox - если нужно
         private void configureGrid() {
             grid.addClassNames("patient-grid");
@@ -57,6 +73,8 @@ private Component getContent(){
                "balance","doctorNameForPatient","appointmentTime","typeOfAppointment","description" );
 
             grid.getColumns().forEach(col -> col.setAutoWidth(true));
+            grid.asSingleSelect().addValueChangeListener(event ->
+                editPatient(event.getValue()));
         }
 
         private HorizontalLayout getToolbar() {
@@ -66,10 +84,27 @@ private Component getContent(){
             filterText.addValueChangeListener(e -> updateList());
 
             Button addPatientButton = new Button("Add Patient");
-
+            addPatientButton.addClickListener(click -> addPatient());
             HorizontalLayout toolbar = new HorizontalLayout(filterText, addPatientButton);
             toolbar.addClassName("toolbar");
             return toolbar;
+        }
+    public void editPatient(Patient patient) {
+        if (patient == null) {
+            closeEditor();
+        } else {
+            contactForm.setContact(patient);
+            contactForm.setVisible(true);
+            addClassName("editing");
+        }}
+        private void closeEditor() {
+            contactForm.setContact(null);
+            contactForm.setVisible(false);
+            removeClassName("editing");
+        }
+        private void addPatient() {
+            grid.asSingleSelect().clear();
+            editPatient(new Patient());
         }
     private void updateList() {
         grid.setItems(patientService.findAllPatients(filterText.getValue()));

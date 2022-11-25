@@ -116,7 +116,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
             Notification notification = new Notification(id.equals(0)? "Контакт успешно создан":"Контакт был изменен",1000);
             notification.setPosition(Notification.Position.MIDDLE);
             notification.addDetachListener(detachEvent -> {
-                UI.getCurrent().navigate(ContactList.class);
+                UI.getCurrent().navigate(DoctorsList.class);
             });
             contactForm.setEnabled(false);
             notification.open();

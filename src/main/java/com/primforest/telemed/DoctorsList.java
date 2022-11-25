@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Route("doctors")
-public class ContactList extends AppLayout {
+public class DoctorsList extends AppLayout {
 
     VerticalLayout layout;
     Grid<Doctor> grid;
@@ -26,7 +26,7 @@ public class ContactList extends AppLayout {
     @Autowired
     ClinicRepository clinicRepository;
 
-    public ContactList(){
+    public DoctorsList(){
         layout = new VerticalLayout();
         grid = new Grid<>();
         grid = new Grid<>(Doctor.class);
