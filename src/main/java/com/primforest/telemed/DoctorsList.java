@@ -9,6 +9,7 @@ import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-@Route("doctors")
+
+@Route(value = "DOCTORS", layout = MainLayout.class)
+@PageTitle("Doctors | Telemed")
 public class DoctorsList extends AppLayout {
 
     VerticalLayout layout;
     Grid<Doctor> grid;
     RouterLink linkCreate;
+
 
     @Autowired
     ClinicRepository clinicRepository;
@@ -32,6 +36,8 @@ public class DoctorsList extends AppLayout {
         grid = new Grid<>(Doctor.class);
         linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,(int)(Math.random()*100+158));
         layout.add(linkCreate);
+
+
         layout.add(grid);
         addToNavbar(new H3("LIST OF DOCTORS"));
         setContent(layout);

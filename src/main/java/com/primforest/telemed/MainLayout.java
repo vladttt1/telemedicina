@@ -7,7 +7,13 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.theme.Theme;
+
+
+
 
 public class MainLayout extends AppLayout {
 
@@ -34,11 +40,12 @@ public class MainLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        RouterLink listLink = new RouterLink("patients", ListViewPatient.class);
+        RouterLink listLink = new RouterLink("Patients", ListViewPatient.class);
         listLink.setHighlightCondition(HighlightConditions.sameLocation());
+        RouterLink doctorLink=new RouterLink("Doctors",DoctorsList.class);
 
         addToDrawer(new VerticalLayout(
-            listLink
+            listLink,doctorLink
         ));
     }
 }

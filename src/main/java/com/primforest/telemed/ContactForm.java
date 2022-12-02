@@ -11,6 +11,7 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.shared.Registration;
@@ -39,8 +40,8 @@ public class ContactForm extends FormLayout {
     Button save = new Button("Save");
     Button delete = new Button("Delete");
     Button close = new Button("Cancel");
-    Binder<Patient> binder = new Binder<>(Patient.class);
-    //Binder<Contact> binder = new BeanValidationBinder<>(Contact.class) нужно так
+   // Binder<Patient> binder = new Binder<>(Patient.class);
+    Binder<Patient> binder = new BeanValidationBinder<>(Patient.class) ;
     public ContactForm(){
         addClassName("contact-form");
         binder.bindInstanceFields(this);

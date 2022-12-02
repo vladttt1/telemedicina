@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +18,8 @@ public class Patient {
 
     private int id;
     private String patientName;
-
+    @Email
+    @NotEmpty
     private String email;
     private String mobNumber;
     private int age;

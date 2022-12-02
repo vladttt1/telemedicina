@@ -75,7 +75,7 @@
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-bom</artifactId>
-        <version>23.2.4</version>
+        <version>23.2.6</version>
         <type>pom</type>
     </dependency>
 
@@ -87,8 +87,108 @@
             <artifactId>
                 vaadin-spring-boot-starter
             </artifactId>
-            <version>23.2.4</version>
+            <version>23.2.6</version>
         </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>flow</artifactId>
+        <version>23.2.6</version>
+        <type>pom</type>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-server</artifactId>
+        <version>8.18.0</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>collaboration-engine</artifactId>
+        <version>5.2.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>19.0.0</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-charts-flow</artifactId>
+        <version>23.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-ordered-layout-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-ordered-layout-testbench</artifactId>
+        <version>23.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-button-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-text-field-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-grid-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-icons-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-form-layout-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-app-layout-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-notification-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-login-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-dialog-flow</artifactId>
+        <version>23.2.6</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.vaadin/vaadin -->
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin</artifactId>
+        <version>23.2.10</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-bom -->
+    <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-bom</artifactId>
+        <version>23.2.10</version>
+        <type>pom</type>
+    </dependency>
+
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>collaboration-engine</artifactId>
@@ -119,14 +219,12 @@
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
-                <version>23.2.4</version>
+                <version>23.2.6</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>copy-production-files</goal>
 
-
-                            <goal>package-for-production</goal>
+                            <goal>prepare-frontend</goal>
                         </goals>
                     </execution>
                 </executions>

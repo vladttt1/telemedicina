@@ -15,7 +15,7 @@ import javax.annotation.security.PermitAll;
 
 @Route(value="", layout = MainLayout.class)
 
-@PermitAll
+
     @PageTitle("Patients | Telemedicine")
 
     public class ListViewPatient extends VerticalLayout {
