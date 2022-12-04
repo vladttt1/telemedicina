@@ -95,7 +95,7 @@ public class ContactForm extends FormLayout {
         }
 
         public Patient getContact() {
-            return patient;
+            return getContact();
         }
     }
 

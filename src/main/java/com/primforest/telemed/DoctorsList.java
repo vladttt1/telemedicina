@@ -2,13 +2,18 @@ package com.primforest.telemed;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
+import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
@@ -18,7 +23,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 
-@Route(value = "DOCTORS", layout = MainLayout.class)
+@Route(value = "Doctors",  layout =MainLayout.class)
 @PageTitle("Doctors | Telemed")
 public class DoctorsList extends AppLayout {
 
@@ -26,22 +31,23 @@ public class DoctorsList extends AppLayout {
     Grid<Doctor> grid;
     RouterLink linkCreate;
 
-
     @Autowired
     ClinicRepository clinicRepository;
 
     public DoctorsList(){
         layout = new VerticalLayout();
-        grid = new Grid<>();
-        grid = new Grid<>(Doctor.class);
-        linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,(int)(Math.random()*100+158));
-        layout.add(linkCreate);
 
+        grid = new Grid<>(Doctor.class);
+        linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,(int)(Math.random()*100+8));
+        layout.add(linkCreate);
 
         layout.add(grid);
         addToNavbar(new H3("LIST OF DOCTORS"));
-        setContent(layout);
-    }
+        setContent(layout); }
+
+
+
+
     @PostConstruct
     public void fillGrid(){
         List<Doctor> contacts = clinicRepository.findAll();
@@ -78,5 +84,8 @@ public class DoctorsList extends AppLayout {
             }));
             grid.setItems(contacts);
         }
-    }}
+
+
+        }
+    }
 

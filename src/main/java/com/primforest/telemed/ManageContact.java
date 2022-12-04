@@ -84,7 +84,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
                 email.setValue(x.getEmail());
                 university.setValue(x.getUniversity());
                 experienceYear.setValue(x.getExperienceYear());
-                hospitalName.setValue(x.getHopspitalName());
+                hospitalName.setValue(x.getHospitalName());
                 priceOfConsultation.setValue(String.valueOf(x.getPriceOfConsultation()));
                 appointmentTimeDoc.setValue(x.getAppointmentTimeDoc());
                 typeOfAppointment.setValue(x.getTypeOfAppointment());
@@ -105,7 +105,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
             doctor.setMobNumber(mobNumber.getValue());
              doctor.setUniversity(university.getValue());
              doctor.setExperienceYear(experienceYear.getValue());
-             doctor.setHopspitalName(hospitalName.getValue());
+             doctor.setHospitalName(hospitalName.getValue());
              doctor.setPriceOfConsultation(Integer.parseInt(priceOfConsultation.getValue()));
              doctor.setAppointmentTimeDoc(appointmentTimeDoc.getValue());
              doctor.setTypeOfAppointment(typeOfAppointment.getValue());

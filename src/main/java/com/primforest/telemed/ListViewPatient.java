@@ -4,6 +4,7 @@ package com.primforest.telemed;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -33,8 +34,8 @@ import javax.annotation.security.PermitAll;
             //Image img=new Image("/src/main/resources/static/doctor1.png","Patients");
             //img.setWidth("800px");
             //add(img);
-            //Icon icon = new Icon("vaadin", "doctor");
-            //add(icon);
+            Icon icon = new Icon("vaadin", "doctor");
+            add(icon);
             add(getToolbar(), getContent());updateList();
             closeEditor();
         }

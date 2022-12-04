@@ -9,7 +9,7 @@ import java.util.List;
 public interface PatientRepository extends MongoRepository<Patient,Integer> {
 
 
-    void deleteDoctorById();
+
 
 
     List<Patient> findAllByPatientName(String stringFilter);

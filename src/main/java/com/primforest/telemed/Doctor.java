@@ -20,7 +20,7 @@ public class Doctor {
     private String position;
     private String university;
     private String experienceYear;
-    private String hopspitalName;
+    private String hospitalName;
     private String website;
     private String email;
     private String mobNumber;

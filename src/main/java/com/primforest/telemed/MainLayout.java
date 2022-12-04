@@ -6,13 +6,7 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.HighlightConditions;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.theme.Theme;
-
-
+import com.vaadin.flow.router.*;
 
 
 public class MainLayout extends AppLayout {
@@ -21,6 +15,26 @@ public class MainLayout extends AppLayout {
         createHeader();
         createDrawer();
     }
+    /*@ParentLayout(MainLayout.class)
+    public class MenuBar extends AppLayout
+        implements RouterLayout {
+        public MenuBar() {
+            addMenuElement(SpecialitiesView.class, "SPECIALITIES");
+            addMenuElement(IconsView.class, "Icons");
+        }
+        // name) {
+            // implementation omitted
+        }
+    }
+
+    @Route(value = "tutorial", layout = MenuBar.class)
+    public class TutorialView extends Div {
+    }
+
+    @Route(value = "icons", layout = MenuBar.class)
+    public class IconsView extends Div {
+    }
+    */
 
     private void createHeader() {
         H1 logo = new H1("TELEMEDICINE SERVICE");
@@ -42,10 +56,11 @@ public class MainLayout extends AppLayout {
     private void createDrawer() {
         RouterLink listLink = new RouterLink("Patients", ListViewPatient.class);
         listLink.setHighlightCondition(HighlightConditions.sameLocation());
-        RouterLink doctorLink=new RouterLink("Doctors",DoctorsList.class);
+
 
         addToDrawer(new VerticalLayout(
-            listLink,doctorLink
-        ));
+            listLink,new RouterLink("Doctors",DoctorsList.class),new RouterLink("Specialities",SpecialitiesView.class),new
+            RouterLink( "Therapy",Therapy.class)));
+
     }
 }

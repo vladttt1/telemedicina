@@ -6,10 +6,13 @@ import java.util.List;
 
 @Repository
 public interface ClinicRepository extends MongoRepository <Doctor,Integer> {
-    Doctor findAllByEmail();
+
     void deleteDoctorById();
 
     List<String> findAllBydoctorName();
+
+    List<Doctor> findDoctorsByDoctorName(String stringFilter);
+
 
     //createNewAppointment(RestRequestNewAppointment restRequestNewAppointment);
 }
