@@ -21,34 +21,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+@Route(value = "doctors",layout = MainLayout.class)
+@PageTitle("Doctors | Telemedicine")
 
-
-@Route(value = "Doctors",  layout =MainLayout.class)
-@PageTitle("Doctors | Telemed")
 public class DoctorsList extends AppLayout {
-
     VerticalLayout layout;
     Grid<Doctor> grid;
     RouterLink linkCreate;
-
     @Autowired
     ClinicRepository clinicRepository;
-
     public DoctorsList(){
         layout = new VerticalLayout();
-
+        grid=new Grid<>();
         grid = new Grid<>(Doctor.class);
-        linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,(int)(Math.random()*100+8));
+        linkCreate = new RouterLink("CREATE DOCTOR",ManageContact.class,((int) (Math.random()*100+123)));
+        // придумал как содать id-d MongoDb нет Generated Value
         layout.add(linkCreate);
-
         layout.add(grid);
         addToNavbar(new H3("LIST OF DOCTORS"));
         setContent(layout); }
 
-
-
-
-    @PostConstruct
+@PostConstruct
     public void fillGrid(){
         List<Doctor> contacts = clinicRepository.findAll();
        if (!contacts.isEmpty()){
@@ -87,5 +80,5 @@ public class DoctorsList extends AppLayout {
 
 
         }
-    }
+}
 

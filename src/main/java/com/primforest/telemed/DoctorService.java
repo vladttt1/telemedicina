@@ -11,7 +11,7 @@ public class DoctorService {
         this.clinicRepository = clinicRepository;
     }
 
-    public List<Doctor> findAllPatients(String stringFilter) {
+    public List<Doctor> findAllDoctors(String stringFilter) {
         if (stringFilter == null || stringFilter.isEmpty()) {
             return clinicRepository.findAll();
         } else {
@@ -36,12 +36,15 @@ public class DoctorService {
     }
 
 
-    public void saveOrUpdateDoctor(Doctor contact) {
+    public void saveOrUpdateDoctor(Doctor doctor) {clinicRepository.save(doctor);
     }
 
     public void find(String value) {
         clinicRepository.findAll();
 
+    }
+
+    public List<Doctor> findAll() { return clinicRepository.findAll();
     }
 }
 

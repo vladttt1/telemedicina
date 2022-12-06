@@ -9,9 +9,6 @@ import java.util.List;
 public interface PatientRepository extends MongoRepository<Patient,Integer> {
 
 
-
-
-
     List<Patient> findAllByPatientName(String stringFilter);
 
     List<Patient> findAllPatientsByPatientName(String stringFilter);

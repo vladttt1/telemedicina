@@ -44,6 +44,7 @@ public class PatientService {
             System.err.println("Contact is null. Are you sure you have connected your form to the application?");
             return;
         }
+        patient.setId((int)(Math.random()*100+112));//иначе невозможно присвоить id-в MongoDB
         patientRepository.save(patient);
     }
 

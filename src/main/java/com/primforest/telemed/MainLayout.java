@@ -59,7 +59,7 @@ public class MainLayout extends AppLayout {
 
 
         addToDrawer(new VerticalLayout(
-            listLink,new RouterLink("Doctors",DoctorsList.class),new RouterLink("Specialities",SpecialitiesView.class),new
+            listLink,new RouterLink("doctors",DoctorsList.class),new RouterLink("Specialities",SpecialitiesView.class),new
             RouterLink( "Therapy",Therapy.class)));
 
     }

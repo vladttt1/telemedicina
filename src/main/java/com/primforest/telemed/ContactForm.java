@@ -94,8 +94,8 @@ public class ContactForm extends FormLayout {
             this.patient = patient;
         }
 
-        public Patient getContact() {
-            return getContact();
+        public Patient getPatient() {
+            return patient ;
         }
     }
 

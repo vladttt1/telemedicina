@@ -12,6 +12,7 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Route("manageContact")
@@ -62,7 +63,8 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
     @Override
     public void setParameter(BeforeEvent beforeEvent, Integer contactId) {
 
-        id =contactId;
+      id =contactId;
+
         if (!id.equals(0)){addToNavbar(new H3("Редактирование контакта"));
         }
         else {
@@ -77,6 +79,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
         if (!id.equals(0)){
             Optional<Doctor> doctor = clinicRepository.findById(id);
             doctor.ifPresent(x -> {
+
                 doctorName.setValue(x.getDoctorName());
                 speciality.setValue(x.getSpeciality());
                 position.setValue(x.getPosition());
@@ -98,6 +101,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
           if (!id.equals(0)) {
               doctor.setId(id);
           }
+
             doctor.setDoctorName(doctorName.getValue());
             doctor.setSpeciality(speciality.getValue());
             doctor.setPosition(position.getValue());

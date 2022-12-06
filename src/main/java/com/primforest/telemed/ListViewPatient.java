@@ -55,13 +55,13 @@ private Component getContent(){
             contactForm.addListener(ContactForm.CloseEvent.class, e -> closeEditor());
         }
      void savePatient(ContactForm.SaveEvent event) {
-        patientService.savePatient(event.getContact());
+        patientService.savePatient(event.getPatient());
         updateList();
         closeEditor();
     }
 
      void deletePatient(ContactForm.DeleteEvent event) {
-        patientService.deletePatient(event.getContact());
+        patientService.deletePatient(event.getPatient());
         updateList();
         closeEditor();
     }
