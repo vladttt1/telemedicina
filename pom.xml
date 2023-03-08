@@ -12,7 +12,8 @@
     <artifactId>telemed</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>telemed</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Medicine project using Vaadin Spring Boot and MongoDB</description>
+    <packaging>war</packaging>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -103,11 +104,7 @@
     </dependency>
 
 
-    <dependency>
-        <groupId>com.vaadin</groupId>
-        <artifactId>collaboration-engine</artifactId>
-        <version>5.2.0</version>
-    </dependency>
+
     <dependency>
         <groupId>org.jetbrains</groupId>
         <artifactId>annotations</artifactId>
@@ -117,62 +114,62 @@
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-charts-flow</artifactId>
-        <version>23.2.3</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-ordered-layout-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-ordered-layout-testbench</artifactId>
-        <version>23.2.3</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-button-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-text-field-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-grid-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-icons-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-form-layout-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-app-layout-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-notification-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-login-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-dialog-flow</artifactId>
-        <version>23.2.6</version>
+        <version>23.2.10</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.vaadin/vaadin -->
@@ -194,12 +191,7 @@
         <artifactId>collaboration-engine</artifactId>
         <version>5.2.0</version>
     </dependency>
-    <dependency>
-        <groupId>org.jetbrains</groupId>
-        <artifactId>annotations</artifactId>
-        <version>19.0.0</version>
-        <scope>compile</scope>
-    </dependency>
+
 </dependencies>
 
     <build>

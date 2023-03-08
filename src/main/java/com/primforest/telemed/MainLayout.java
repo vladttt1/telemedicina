@@ -7,7 +7,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
-
+import com.vaadin.flow.server.PWA;
 
 public class MainLayout extends AppLayout {
 
@@ -40,6 +40,7 @@ public class MainLayout extends AppLayout {
         H1 logo = new H1("TELEMEDICINE SERVICE");
         logo.addClassNames("text-l", "m-m");
 
+
         HorizontalLayout header = new HorizontalLayout(
             new DrawerToggle(),
             logo
@@ -60,7 +61,7 @@ public class MainLayout extends AppLayout {
 
         addToDrawer(new VerticalLayout(
             listLink,new RouterLink("doctors",DoctorsList.class),new RouterLink("Specialities",SpecialitiesView.class),new
-            RouterLink( "Therapy",Therapy.class)));
+            RouterLink( "Appointment",Therapy.class)));
 
     }
 }

@@ -1,5 +1,6 @@
 package Appointment;
 
+import com.primforest.telemed.AppointmentEntity;
 import com.primforest.telemed.PatientRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

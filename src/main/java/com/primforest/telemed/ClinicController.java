@@ -4,6 +4,7 @@ import PatientAccount.BankProgram;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class ClinicController {
-    MongoTemplate mongoTemplate;
+     MongoTemplate mongoTemplate;
     @Autowired
      ClinicRepository clinicRepository;
 @Autowired
@@ -27,13 +28,6 @@ PatientService patientService;
     @GetMapping("/allDoctors")
     public List<Doctor>getAllDoctors(){
         return clinicRepository.findAll(); }
-  //  @PostMapping(value = "/newAppointment")
- //public  void  newAppointment(@RequestBody RestRequestNewAppointment restRequestNewAppointment  ){
-      //  clinicService.createNewAppointment(restRequestNewAppointment);}
-    //@PostMapping(value = "/save")
-    //public ResponseEntity<?> saveOrUpdateAppointment(@RequestBody Patient patient) {
-        //clinicService.saveOrUpdateAppointment(ObjectMapperUtils.map(patient, Patient.class));
-        //return new ResponseEntity("Appointment added successfully", HttpStatus.OK);
         @PostMapping("/newDoctor")
         public Doctor addNewDoctor (@RequestBody Doctor doctor){
             return clinicRepository.save(doctor);

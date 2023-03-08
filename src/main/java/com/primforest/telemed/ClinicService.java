@@ -31,7 +31,7 @@ public class  ClinicService {
                 Query query=new Query()
                 .addCriteria(Criteria.where("speciality").is(speciality))
                     .with(Sort.by(Sort.Order.desc("speciality")))
-                    .limit(10);
+                    .limit(20);
                 return mongoTemplate.find(query, Doctor.class);
             }
 
