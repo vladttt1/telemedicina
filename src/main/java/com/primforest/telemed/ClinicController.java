@@ -4,7 +4,6 @@ import PatientAccount.BankProgram;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class ClinicController {
-     MongoTemplate mongoTemplate;
+    MongoTemplate mongoTemplate;
     @Autowired
      ClinicRepository clinicRepository;
 @Autowired
@@ -25,6 +24,12 @@ PatientRepository patientRepository;
   private ClinicService clinicService;
 @Autowired
 PatientService patientService;
+
+    @Autowired
+    public ClinicController(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
     @GetMapping("/allDoctors")
     public List<Doctor>getAllDoctors(){
         return clinicRepository.findAll(); }
@@ -49,6 +54,10 @@ PatientService patientService;
         public List<Patient> findAllPatientsByPatientName (@PathVariable String patientName){
             return clinicService.getPatientByName(patientName);
         }
+    @GetMapping("/docSpeciality/{speciality}")
+    List<Doctor>getSpetialities(@PathVariable String speciality){
+        return clinicService.allDoctorsBySpeciality(speciality);
+    }
 @GetMapping
     (value = "/findDoctors/{doctorName}")
 public  List<String>getDoctorByName(@PathVariable String doctorName){

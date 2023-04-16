@@ -1,22 +1,23 @@
 package com.primforest.telemed;
 
-import com.primforest.telemed.MainLayout;
 import com.vaadin.flow.component.Key;
-import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.contextmenu.SubMenu;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Hr;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.server.StreamResource;
 
 @Route(value="Specialities",layout = MainLayout.class)
 @PageTitle(" Specialities| Telemed")
@@ -45,9 +46,28 @@ import com.vaadin.flow.router.RouterLink;
         });
         addButton.addClickShortcut(Key.ENTER);
 
+        Image image = new Image("frontend/images/doctor.jpg", "OUR DOCTORS");
+        add(image);
+        StreamResource imageResource = new StreamResource("doctor1.png",
+                () -> getClass().getResourceAsStream("/images/doctor1.png"));
 
+        Image image1 = new Image(imageResource, "My Streamed Image");
+        add(image1);
+        Icon icon=new Icon(VaadinIcon.PHONE);
+                add (icon);
+        TextField field = new TextField("Street Address");
+        field.setPrefixComponent(new Icon("vaadin", "map-marker"));
+        field.setSuffixComponent(new Icon("vaadin", "building"));
+
+// Wrap the icon inside a composition
+        HorizontalLayout helper = new HorizontalLayout();
+        helper.add(new Icon("vaadin", "info-circle-o"));
+        helper.add(new Label("Here be help"));
+        field.setHelperComponent(helper);
+
+        add(field);
         add(
-            new com.vaadin.flow.component.Component[]{new H1(" MEDICAL SPECIALIZATIONS"),
+            new com.vaadin.flow.component.Component[]{new H1(" OUR DOCTORS BY MEDICAL SPECIALIZATIONS"),
 
                 todosList, new HorizontalLayout(
                 taskField,

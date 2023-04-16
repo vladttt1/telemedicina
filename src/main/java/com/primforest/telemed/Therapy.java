@@ -1,27 +1,16 @@
 package com.primforest.telemed;
 
-import com.vaadin.annotations.HtmlImport;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.HasText;
-import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.dependency.JavaScript;
-import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Page;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
-import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.PostConstruct;
-import java.awt.*;
 
 @Route(value="Apointment",layout = MainLayout.class)
 
@@ -48,6 +37,7 @@ import java.awt.*;
             configureForm();
             Icon icon = new Icon("vaadin", "doctor");
             add(icon);
+
 
 
             add(getToolbar(), getContent(), new H1(" make appointment here"));updateList();closeEditor();}

@@ -20,6 +20,7 @@ public class  ClinicService {
     @Autowired
     ClinicRepository clinicRepository;
 
+    @Autowired
     public MongoTemplate mongoTemplate;
 
 
@@ -30,11 +31,13 @@ public class  ClinicService {
     public List<Doctor>allDoctorsBySpeciality(String speciality) {
                 Query query=new Query()
                 .addCriteria(Criteria.where("speciality").is(speciality))
-                    .with(Sort.by(Sort.Order.desc("speciality")))
-                    .limit(20);
+                    ;
                 return mongoTemplate.find(query, Doctor.class);
             }
 
+    /*List<Doctor>allDoctorsBySpeciality(String speciality){
+        return  clinicRepository.findAllBySpeciality();
+    }*/
     public List<Patient>allPatientsByDoctor(String patientName){
         Query query3 = new Query();
         query3.addCriteria(Criteria.where("name").is(patientName));

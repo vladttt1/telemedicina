@@ -9,8 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 @SpringBootApplication
 public class TelemedApplication {
-    @Autowired
-    ClinicRepository clinicRepository;
+
 
 
 
