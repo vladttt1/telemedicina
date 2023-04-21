@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +55,12 @@ PatientService patientService;
         public List<Patient> findAllPatientsByPatientName (@PathVariable String patientName){
             return clinicService.getPatientByName(patientName);
         }
+        @GetMapping ("/jitsiCall")
+        ///does not work
+        public ModelAndView callJitsi(){
+        return new ModelAndView("JitsiPath"
+                );
+        }
     @GetMapping("/docSpeciality/{speciality}")
     List<Doctor>getSpetialities(@PathVariable String speciality){
         return clinicService.allDoctorsBySpeciality(speciality);
@@ -68,6 +75,7 @@ public  List<String>getDoctorByName(@PathVariable String doctorName){
             return patientRepository.findAll();
         }
          @GetMapping("/addAmount/{amount}")
+         // need to Rewrite BankProgram
 public  void addAmount(@PathVariable int amount){
             // patientService.addAmount();
              BankProgram program= new BankProgram();

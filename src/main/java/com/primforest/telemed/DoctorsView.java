@@ -18,13 +18,13 @@ import java.util.List;
 
 
         @PageTitle("Doctors | Vaadin CRM")
-        public class ListView extends VerticalLayout {
+        public class DoctorsView extends VerticalLayout {
             Grid<Doctor> grid = new Grid<>(Doctor.class);
             TextField filterText = new TextField();
             PatientService patientService;
 
 ClinicRepository clinicRepository;
-            public ListView(PatientService patientService) {
+            public DoctorsView(PatientService patientService) {
                 addClassName("list-view");
                 setSizeFull();
                 configureGrid();

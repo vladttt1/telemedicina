@@ -16,7 +16,7 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.shared.Registration;
 
-public class ContactForm extends FormLayout {
+public class  ContactForm extends FormLayout {
     private Patient patient;
     TextField patientName = new TextField("Patient");
     TextField mobileNumber = new TextField("MobileNumb");

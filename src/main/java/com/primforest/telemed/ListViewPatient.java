@@ -14,7 +14,8 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.PermitAll;
 
-@Route(value="", layout = MainLayout.class)
+@PermitAll
+@Route(value="/", layout = MainLayout.class)
 
 
     @PageTitle("Patients | Telemedicine")
@@ -70,7 +71,7 @@ private Component getContent(){
         private void configureGrid() {
             grid.addClassNames("patient-grid");
             grid.setSizeFull();
-            grid.setColumns("id","patientName",  "email","mobNumber","age","gender","diagnosis","prescriptions","language",
+            grid.setColumns("id","patientName",  "age","gender","diagnosis","prescriptions","language","email","mobNumber",
                "balance","doctorNameForPatient","appointmentTime","typeOfAppointment","description" );
 
             grid.getColumns().forEach(col -> col.setAutoWidth(true));

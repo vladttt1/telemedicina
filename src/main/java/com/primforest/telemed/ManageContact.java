@@ -12,7 +12,6 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Route("manageContact")
@@ -117,7 +116,7 @@ public class ManageContact extends AppLayout implements HasUrlParameter<Integer>
             clinicRepository.save(doctor);
 
 
-            Notification notification = new Notification(id.equals(0)? "Контакт успешно создан":"Контакт был изменен",1000);
+            Notification notification = new Notification(!id.equals(0)? "Контакт успешно создан":"Контакт был изменен",1000);
             notification.setPosition(Notification.Position.MIDDLE);
             notification.addDetachListener(detachEvent -> {
                 UI.getCurrent().navigate(DoctorsList.class);

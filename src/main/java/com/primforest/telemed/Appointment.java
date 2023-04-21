@@ -16,7 +16,7 @@ import com.vaadin.flow.router.Route;
 
 @PageTitle("Appointment| Telemed")
 
-    public class Therapy extends VerticalLayout {
+    public class Appointment extends VerticalLayout {
 
     Grid<Doctor> grid = new Grid<>(Doctor.class);
         TextField filterText = new TextField();
@@ -26,8 +26,8 @@ import com.vaadin.flow.router.Route;
          ClinicService clinicService;
          PatientService patientService;
 
-        public Therapy( AppointmentService appointmentService,PatientService patientService,
-                        ClinicService clinicService) {
+        public Appointment(AppointmentService appointmentService, PatientService patientService,
+                           ClinicService clinicService) {
             this.appointmentService=appointmentService;
             this.patientService=patientService;
             this.clinicService=clinicService;
