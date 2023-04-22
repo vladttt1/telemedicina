@@ -19,7 +19,8 @@ public class SecurityConfig extends VaadinWebSecurity {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 //anyRequest need to change with .requestMatcher or anyRequest???
-                .antMatchers("/").permitAll();
+                //.antMatchers("/","/Patients","/Specialities","/doctors","/Appointment").permitAll();
+                        .anyRequest().permitAll();
         super.configure(http);
         setLoginView(http, LoginView.class);
     }

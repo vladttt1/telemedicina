@@ -12,12 +12,14 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
 
 
 
         @PageTitle("Doctors | Vaadin CRM")
+        @PermitAll
         public class DoctorsView extends VerticalLayout {
             Grid<Doctor> grid = new Grid<>(Doctor.class);
             TextField filterText = new TextField();

@@ -19,8 +19,11 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamResource;
 
+import javax.annotation.security.PermitAll;
+
 @Route(value="Specialities",layout = MainLayout.class)
 @PageTitle(" Specialities| Telemed")
+@PermitAll
  public class SpecialitiesView extends VerticalLayout {
 
     public SpecialitiesView() {
