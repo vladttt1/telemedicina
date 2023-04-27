@@ -5,6 +5,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.contextmenu.SubMenu;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
@@ -40,6 +41,7 @@ import javax.annotation.security.PermitAll;
         subMenu.addItem("Get link");
         subMenu.add(new Hr());
         subMenu.addItem("Set permissions");
+        Grid<Doctor> grid = new Grid<>();
 
         Button addButton = new Button("Add");
         addButton.addClickListener(click -> {
@@ -49,6 +51,8 @@ import javax.annotation.security.PermitAll;
         });
         addButton.addClickShortcut(Key.ENTER);
 
+
+        grid.addComponentColumn(doctor -> new Image(doctor.getImageUrl(), "OUR DOCTORS PHOTOS")).setHeader("Preview");
         Image image = new Image("frontend/images/doctor.jpg", "OUR DOCTORS");
         add(image);
         StreamResource imageResource = new StreamResource("doctor1.png",
@@ -75,7 +79,8 @@ import javax.annotation.security.PermitAll;
                 todosList, new HorizontalLayout(
                 taskField,
                 addButton,
-                menuBar
+                menuBar,
+                    grid
 
 
             )});

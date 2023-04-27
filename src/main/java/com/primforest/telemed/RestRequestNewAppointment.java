@@ -1,4 +1,4 @@
-package Appointment;
+package com.primforest.telemed;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

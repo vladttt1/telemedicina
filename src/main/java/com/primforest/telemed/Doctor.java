@@ -29,6 +29,8 @@ public class Doctor {
     private String typeOfAppointment;
 
 
-
+    public String getImageUrl() {
+        return null;
+    }
 }
 

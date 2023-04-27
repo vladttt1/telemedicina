@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 @Service
@@ -14,15 +13,16 @@ public class AppointmentService {
     private final ClinicRepository clinicRepository;
     private final PatientRepository patientRepository;
 
-
-    public  AppointmentService(ClinicRepository clinicRepository, PatientRepository patientRepository
-    ) {
+ public   final AppointmentRepository appointmentRepository;
+    public  AppointmentService(ClinicRepository clinicRepository, PatientRepository patientRepository,
+                               AppointmentRepository appointmentRepository) {
         this.clinicRepository = clinicRepository;
         this.patientRepository=patientRepository;
+        this.appointmentRepository = appointmentRepository;
     }
 
-
-
+ //public  void saveAppointment(Appointment appointment){ Appointment.builder().build();}
+ public void saveAppointment (Appointment appointment){appointmentRepository.save(Appointment.builder().build());}
     public List<Doctor> findAllDoctors(String stringFilter) {
         if (stringFilter == null || stringFilter.isEmpty()) {
             return clinicRepository.findAll();}

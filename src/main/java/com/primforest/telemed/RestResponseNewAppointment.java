@@ -1,7 +1,5 @@
-package Appointment;
+package com.primforest.telemed;
 
-import com.primforest.telemed.AppointmentEntity;
-import com.primforest.telemed.PatientRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +19,7 @@ PatientRepository patientRepository;
     private String typeOfAppointment;
     private long id;
     private String patientName;
-    public static RestResponseNewAppointment fromPatient(AppointmentEntity patient){
+    public static RestResponseNewAppointment fromPatient(Appointment patient){
         return RestResponseNewAppointment.builder()
             .patientName(patient.getPatientName())
             .id(patient.getAppointmentId())

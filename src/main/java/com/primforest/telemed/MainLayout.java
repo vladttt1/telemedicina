@@ -74,7 +74,6 @@ public class MainLayout extends AppLayout {
 
         addToDrawer(new VerticalLayout(
             listLink,new RouterLink("doctors",DoctorsList.class),new RouterLink("Specialities",SpecialitiesView.class),new
-            RouterLink( "Appointment", Appointment.class)));
-
+            RouterLink( "Appointment", AppointmentView.class),new RouterLink("application-images-class",ImageClassResource.class)));
     }
 }
