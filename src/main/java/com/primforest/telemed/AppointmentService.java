@@ -22,7 +22,7 @@ public class AppointmentService {
     }
 
  //public  void saveAppointment(Appointment appointment){ Appointment.builder().build();}
- public void saveAppointment (Appointment appointment){appointmentRepository.save(Appointment.builder().build());}
+ public void saveAppointment (Appointment appointment){appointmentRepository.save(appointment);}
     public List<Doctor> findAllDoctors(String stringFilter) {
         if (stringFilter == null || stringFilter.isEmpty()) {
             return clinicRepository.findAll();}
