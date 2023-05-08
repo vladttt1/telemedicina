@@ -19,7 +19,7 @@ import java.util.List;
 
 
         @PageTitle("Doctors | Vaadin CRM")
-        @PermitAll
+@PermitAll
         public class DoctorsView extends VerticalLayout {
             Grid<Doctor> grid = new Grid<>(Doctor.class);
             TextField filterText = new TextField();

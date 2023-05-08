@@ -12,14 +12,19 @@ import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
+
+@RolesAllowed("ADMIN")
 @Route(value = "doctors",layout = MainLayout.class)
 @PageTitle("Doctors | Telemedicine")
-@RolesAllowed("ADMIN")
+
+
+@AnonymousAllowed
 public class DoctorsList extends AppLayout {
     VerticalLayout layout;
     Grid<Doctor> grid;

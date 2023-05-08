@@ -12,9 +12,11 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.security.PermitAll;
 import java.util.Optional;
 
 @Route("manageContact")
+@PermitAll
 public class ManageContact extends AppLayout implements HasUrlParameter<Integer> {
 
     Integer id;
