@@ -9,13 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.primforest</groupId>
-    <artifactId>telemed</artifactId>
+    <artifactId>telemedicina</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>telemed</name>
+    <name>telemedicina</name>
     <description>Medicine project using Vaadin Spring Boot and MongoDB</description>
     <packaging>war</packaging>
     <properties>
-        <java.version>11</java.version>
+        <java.version>19</java.version>
     </properties>
 <dependencies>
 
@@ -204,6 +204,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
