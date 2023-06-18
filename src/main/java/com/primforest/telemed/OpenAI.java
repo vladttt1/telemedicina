@@ -28,7 +28,7 @@ public class OpenAI {
     private List<Message> chatMessages;
     private List<Message> messages = new ArrayList();
 
-    public OpenAI(@Value("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")String apiKey) {
+    public OpenAI(@Value("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")String apiKey) {
         this.apiKey = apiKey;
         this.latestUserInput = "";
         this.chatMessages = new ArrayList<>();
